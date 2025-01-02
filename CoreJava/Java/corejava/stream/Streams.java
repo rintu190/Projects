@@ -21,17 +21,22 @@ public class Streams {
  
         // group by - multiple fields
         // Grouping by designation and Gender two properties and need to get the count.
-        Map<String,Map<String,Long>> multipleFieldsMap = employeesList.stream().collect(Collectors.groupingBy(Employee::getDesignation, 
+        Map<String,Map<String,Long>> multipleFieldsMap = employeesList.stream()
+        .collect(Collectors.groupingBy(Employee::getDesignation, 
         Collectors.groupingBy(Employee::getGender,Collectors.counting())));
 
-        Map<String,Map<String,List<Employee>>> multipleFieldsMapList2 = employeesList.stream().collect(Collectors.groupingBy(Employee::getDesignation,
+        Map<String,Map<String,List<Employee>>> multipleFieldsMapList2 = employeesList.stream()
+        .collect(Collectors.groupingBy(Employee::getDesignation,
         Collectors.groupingBy(Employee::getGender)));
+
         String separatedByComma = employeesList.stream().map(a ->a.getName()).collect(Collectors.joining(","));
  
         // printing the count based on the designation and gender.
-        System.out.println("Group by on multiple properties" + multipleFieldsMap);
+        // System.out.println("Group by on multiple properties" + multipleFieldsMap);
         System.out.println("Group by on multiple properties" + multipleFieldsMapList2);
-        System.out.println(separatedByComma);
+        // System.out.println(separatedByComma);
+        //----------------------------Stackify-------------------------------------
+
     }
     
 }
